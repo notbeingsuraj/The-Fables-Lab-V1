@@ -6,12 +6,12 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import { VectorGrid } from "@/components/ui/PhysicsIllustrations";
 
 const ALL_PROJECTS = [
-  { id: "carefree", name: "Carefree Mobility", description: "Premium car rental MVP built with Next.js & Framer Motion.", image: "", tags: ["Next.js", "Tailwind", "Supabase"], color: "cobalt" as const },
-  { id: "aethos", name: "Aethos Finance", description: "DeFi dashboard redefining institutional crypto management.", image: "", tags: ["React", "Web3", "D3.js"], color: "acid" as const },
-  { id: "lumina", name: "Lumina AI", description: "Enterprise AI content generator prototype.", image: "", tags: ["OpenAI", "Next.js", "Pinecone"], color: "safety-orange" as const },
-  { id: "strata", name: "Strata Homes", description: "PropTech marketplace for fractional real estate investment.", image: "", tags: ["React Native", "Firebase", "Stripe"], color: "cobalt" as const },
-  { id: "nexus", name: "Nexus Health", description: "Telehealth scheduling app for boutique clinics.", image: "", tags: ["Nuxt", "Vue", "PostgreSQL"], color: "acid" as const },
-  { id: "vertex", name: "Vertex Analytics", description: "B2B SaaS data visualization tool for e-commerce.", image: "", tags: ["Next.js", "Prisma", "AWS"], color: "safety-orange" as const },
+  { id: "carefree", name: "Carefree Mobility", description: "Premium car rental MVP built with Next.js & Framer Motion.", image: "", tags: ["Next.js", "Tailwind", "Supabase"], color: "neon-cyan" as const },
+  { id: "aethos", name: "Aethos Finance", description: "DeFi dashboard redefining institutional crypto management.", image: "", tags: ["React", "Web3", "D3.js"], color: "cyber-yellow" as const },
+  { id: "lumina", name: "Lumina AI", description: "Enterprise AI content generator prototype.", image: "", tags: ["OpenAI", "Next.js", "Pinecone"], color: "hot-pink" as const },
+  { id: "strata", name: "Strata Homes", description: "PropTech marketplace for fractional real estate investment.", image: "", tags: ["React Native", "Firebase", "Stripe"], color: "electric-blue" as const },
+  { id: "nexus", name: "Nexus Health", description: "Telehealth scheduling app for boutique clinics.", image: "", tags: ["Nuxt", "Vue", "PostgreSQL"], color: "neon-green" as const },
+  { id: "vertex", name: "Vertex Analytics", description: "B2B SaaS data visualization tool for e-commerce.", image: "", tags: ["Next.js", "Prisma", "AWS"], color: "neon-purple" as const },
 ];
 
 export default function ProjectsPage() {

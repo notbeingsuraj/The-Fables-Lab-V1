@@ -12,7 +12,7 @@ const SERVICES = [
     title: "MVP Engineering",
     desc: "We turn complex ideas into functional, investor-ready MVPs in under 30 days. No bloated architectures, just rapid execution using Next.js, Supabase, and Stripe.",
     icon: Terminal,
-    color: "cobalt" as const,
+    color: "neon-cyan" as const,
     features: ["Rapid Prototyping", "Scalable Database Design", "API Integrations", "Authentication & Payments"]
   },
   {
@@ -20,7 +20,7 @@ const SERVICES = [
     title: "UI/UX Systems",
     desc: "Cinematic, high-conversion interfaces that command premium pricing. We build atomic design systems that scale flawlessly across web and mobile.",
     icon: LayoutTemplate,
-    color: "acid" as const,
+    color: "hot-pink" as const,
     features: ["Design System Creation", "Figma Prototypes", "Framer Motion Animations", "Conversion Optimization"]
   },
   {
@@ -28,7 +28,7 @@ const SERVICES = [
     title: "Mobile Experiences",
     desc: "Native-feeling mobile applications built in React Native. We deploy to both iOS and Android simultaneously without compromising on performance.",
     icon: Smartphone,
-    color: "safety-orange" as const,
+    color: "neon-green" as const,
     features: ["React Native / Expo", "Offline Capabilities", "Push Notifications", "App Store Deployment"]
   },
   {
@@ -36,7 +36,7 @@ const SERVICES = [
     title: "Technical Consulting",
     desc: "Fractional CTO services for early-stage startups. We help you define your architecture, vet technical hires, and plan your product roadmap.",
     icon: Code2,
-    color: "cobalt" as const,
+    color: "cyber-yellow" as const,
     features: ["Architecture Reviews", "Tech Stack Selection", "Code Audits", "Startup Strategy"]
   }
 ];
@@ -49,10 +49,10 @@ export default function ServicesPage() {
 
       {/* Header */}
       <section className="relative pt-32 pb-20 overflow-hidden border-b border-gridline bg-charcoal">
-        <MagneticField className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] text-cobalt opacity-10" />
+        <MagneticField className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] text-electric-blue opacity-10" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center border-x border-gridline min-h-[40vh] flex flex-col justify-center">
-            <span className="text-acid font-mono font-bold text-xs tracking-widest uppercase mb-4 block">Sys / Capabilities</span>
+            <span className="text-neon-green font-mono font-bold text-xs tracking-widest uppercase mb-4 block">Sys / Capabilities</span>
             <h1 className="font-serif italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
               WHAT WE <br />
               <span className="font-grotesk not-italic font-black text-transparent text-stroke">

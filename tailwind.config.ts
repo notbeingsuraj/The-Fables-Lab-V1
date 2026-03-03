@@ -9,14 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        charcoal: "#0f0f11", // Slightly lighter, textured base
-        navy: "#0a1128",
-        "cobalt": "#0047FF",
-        "acid": "#DFFF00",
-        "safety-orange": "#FF5722",
+        charcoal: "#0a0a0c",
+        navy: "#050b14",
+        "neon-cyan": "#00E5FF",
+        "cyber-yellow": "#FFE600",
+        "hot-pink": "#FF007F",
+        "neon-green": "#39FF14",
+        "electric-blue": "#0044FF",
+        "neon-purple": "#B026FF",
         "off-white": "#F4F4F0",
-        "gridline": "rgba(244, 244, 240, 0.15)", // Brighter gridlines
-        background: "#0f0f11",
+        "gridline": "rgba(255, 255, 255, 0.12)",
+        background: "#0a0a0c",
         foreground: "#F4F4F0",
       },
       borderRadius: {

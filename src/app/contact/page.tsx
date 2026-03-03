@@ -11,7 +11,7 @@ export default function ContactPage() {
       <VectorGrid className="opacity-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-16 pt-12 text-center border-x border-gridline bg-charcoal/50 pb-16">
-            <span className="text-cobalt font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// Initialize Sequence"}</span>
+            <span className="text-neon-cyan font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// Initialize Sequence"}</span>
             <h1 className="font-grotesk font-black text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
               START YOUR <br />
               <span className="font-serif italic font-light text-transparent text-stroke">
@@ -38,7 +38,7 @@ export default function ContactPage() {
                
                <div className="space-y-6">
                   <div className="flex items-center gap-4 group">
-                     <div className="w-12 h-12 border border-gridline bg-navy flex items-center justify-center group-hover:bg-cobalt group-hover:border-cobalt transition-colors">
+                     <div className="w-12 h-12 border border-gridline bg-navy flex items-center justify-center group-hover:bg-electric-blue group-hover:border-electric-blue transition-colors">
                         <Mail className="text-off-white group-hover:text-white" size={20} />
                      </div>
                      <div>
@@ -47,7 +47,7 @@ export default function ContactPage() {
                      </div>
                   </div>
                   <div className="flex items-center gap-4 group">
-                     <div className="w-12 h-12 border border-gridline bg-navy flex items-center justify-center group-hover:bg-safety-orange group-hover:border-safety-orange transition-colors">
+                     <div className="w-12 h-12 border border-gridline bg-navy flex items-center justify-center group-hover:bg-hot-pink group-hover:border-hot-pink transition-colors">
                         <MapPin className="text-off-white group-hover:text-white" size={20} />
                      </div>
                      <div>
@@ -61,30 +61,30 @@ export default function ContactPage() {
             {/* High-Contrast Brutalist Form */}
             <div className="lg:col-span-7">
                <form className="bg-navy/50 border border-gridline p-8 md:p-12 backdrop-blur-md relative overflow-hidden">
-                  <VectorGrid className="opacity-20 text-cobalt" />
+                  <VectorGrid className="opacity-20 text-electric-blue" />
                   <div className="relative z-10">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                          <div className="space-y-2">
                             <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">Name</label>
-                            <input type="text" placeholder="John Doe" className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-cobalt transition-colors rounded-none placeholder:text-gridline" />
+                            <input type="text" placeholder="John Doe" className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" />
                          </div>
                          <div className="space-y-2">
                             <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">Email</label>
-                            <input type="email" placeholder="john@startup.com" className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-cobalt transition-colors rounded-none placeholder:text-gridline" />
+                            <input type="email" placeholder="john@startup.com" className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" />
                          </div>
                       </div>
 
                       <div className="space-y-2 mb-6">
                          <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">System / Project Name</label>
-                         <input type="text" placeholder="Acme Inc." className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-cobalt transition-colors rounded-none placeholder:text-gridline" />
+                         <input type="text" placeholder="Acme Inc." className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" />
                       </div>
 
                       <div className="space-y-2 mb-10">
                          <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">Architecture Details</label>
-                         <textarea rows={5} placeholder="Tell us about the vision, timeline, and current state..." className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-cobalt transition-colors resize-none rounded-none placeholder:text-gridline" />
+                         <textarea rows={5} placeholder="Tell us about the vision, timeline, and current state..." className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors resize-none rounded-none placeholder:text-gridline" />
                       </div>
 
-                      <button type="button" className="w-full py-5 bg-acid text-charcoal font-mono font-bold uppercase tracking-widest text-sm hover:glow-acid transition-all flex items-center justify-center gap-2 border border-gridline">
+                      <button type="button" className="w-full py-5 bg-cyber-yellow text-charcoal font-mono font-bold uppercase tracking-widest text-sm hover:glow-yellow transition-all flex items-center justify-center gap-2 border border-gridline">
                          Transmit Data <ArrowRight size={18} />
                       </button>
                   </div>

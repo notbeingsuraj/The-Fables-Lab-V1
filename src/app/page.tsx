@@ -15,7 +15,7 @@ const FEATURED_PROJECTS = [
     description: "A premium car rental platform designed to eliminate queues and maximize driving joy. Built with a futuristic aesthetic and robust booking engine.",
     image: "", // Placeholder
     tags: ["Next.js", "Tailwind", "Supabase", "Stripe"],
-    color: "cobalt" as const,
+    color: "neon-cyan" as const,
   },
   {
     id: "aethos",
@@ -23,7 +23,7 @@ const FEATURED_PROJECTS = [
     description: "DeFi dashboard redefining institutional crypto management. Simplified complex data visualization into a stunning, modular UI.",
     image: "",
     tags: ["React", "Web3", "D3.js", "GraphQL"],
-    color: "acid" as const,
+    color: "neon-purple" as const,
   },
   {
     id: "lumina",
@@ -31,7 +31,7 @@ const FEATURED_PROJECTS = [
     description: "Enterprise AI content generator MVP. Went from concept to fully functional prototype generating $10k MRR in under 3 weeks.",
     image: "",
     tags: ["OpenAI", "Next.js", "Pinecone", "SaaS"],
-    color: "safety-orange" as const,
+    color: "hot-pink" as const,
   },
 ];
 
@@ -45,12 +45,12 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden border-b border-gridline">
         {/* Physics Geometry Backgrounds */}
         <div className="absolute top-0 right-0 w-1/2 h-full -z-10 mix-blend-screen opacity-50 flex items-center justify-center">
-            <MagneticField className="w-full max-w-[800px] text-cobalt absolute" />
+            <MagneticField className="w-full max-w-[800px] text-neon-cyan absolute" />
         </div>
         
         {/* Abstract Glows */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cobalt/15 rounded-full blur-[150px] -z-10 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-safety-orange/15 rounded-full blur-[150px] -z-10 animate-pulse" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-electric-blue/20 rounded-full blur-[150px] -z-10 animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-hot-pink/20 rounded-full blur-[150px] -z-10 animate-pulse" style={{ animationDelay: "2s" }} />
 
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 border-x border-gridline min-h-[80vh] flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
@@ -62,14 +62,14 @@ export default function Home() {
               className="lg:col-span-10 lg:col-start-1"
             >
               <div className="inline-flex items-center gap-3 px-4 py-2 border border-gridline bg-charcoal/50 backdrop-blur-md mb-8">
-                <span className="w-2 h-2 bg-acid animate-pulse shadow-[0_0_10px_#DFFF00]" />
+                <span className="w-2 h-2 bg-neon-green animate-pulse shadow-[0_0_15px_#39FF14]" />
                 <span className="text-off-white font-mono text-xs tracking-widest uppercase">
                   Sys.Status: Accepting Projects
                 </span>
               </div>
               
               <h1 className="font-grotesk font-black text-6xl md:text-8xl lg:text-[10rem] tracking-tighter leading-[0.85] text-off-white overflow-hidden mb-8">
-                BUILD <span className="font-serif italic font-light text-cobalt">FAST.</span> <br />
+                BUILD <span className="font-serif italic font-light text-neon-cyan">FAST.</span> <br />
                 SCALE <span className="text-transparent text-stroke italic font-serif">NOW.</span>
               </h1>
               
@@ -80,7 +80,7 @@ export default function Home() {
                  <div className="md:col-span-6 flex flex-col justify-end items-start md:items-end">
                     <Link 
                       href="/contact"
-                      className="px-8 py-4 bg-acid text-charcoal font-mono font-bold text-sm uppercase tracking-widest hover:scale-105 hover:glow-acid transition-all duration-300 w-full md:w-auto text-center"
+                      className="px-8 py-4 bg-cyber-yellow text-charcoal font-mono font-bold text-sm uppercase tracking-widest hover:scale-105 hover:glow-yellow transition-all duration-300 w-full md:w-auto text-center"
                     >
                       Initialize Build
                     </Link>
@@ -93,7 +93,7 @@ export default function Home() {
 
       {/* Featured Projects with Grid lines */}
       <section id="work" className="relative w-full border-b border-gridline bg-charcoal overflow-hidden py-32">
-        <TopographicPattern className="text-cobalt opacity-5" />
+        <TopographicPattern className="text-electric-blue opacity-5" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 border-x border-gridline h-full">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-gridline pb-8">
@@ -137,10 +137,10 @@ export default function Home() {
       <ColorBlock color="navy" delay={0.2} className="border-b border-gridline !py-0">
         <div className="grid grid-cols-1 lg:grid-cols-12 border-x border-gridline max-w-7xl mx-auto divide-y lg:divide-y-0 lg:divide-x divide-gridline">
           <div className="lg:col-span-5 p-8 lg:p-16 relative overflow-hidden">
-            <MagneticField className="text-acid absolute -top-1/4 -left-1/4 w-[150%] scale-150 opacity-10" />
+            <MagneticField className="text-neon-green absolute -top-1/4 -left-1/4 w-[150%] scale-150 opacity-10" />
             
             <div className="relative z-10">
-                <span className="text-acid font-mono font-bold text-xs tracking-widest uppercase mb-4 block">[ Thesis ]</span>
+                <span className="text-cyber-yellow font-mono font-bold text-xs tracking-widest uppercase mb-4 block">[ Thesis ]</span>
                 <h2 className="font-grotesk font-black text-5xl lg:text-7xl tracking-tighter text-off-white leading-[0.9] mb-8">
                   SPEED IS <br/> <span className="font-serif italic font-light">A FEATURE.</span>
                 </h2>
@@ -170,7 +170,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="p-8 lg:p-12 flex gap-8 items-start hover:bg-white/5 transition-colors group"
               >
-                <div className="p-4 border border-gridline bg-charcoal group-hover:bg-cobalt transition-colors duration-500 rounded-none relative">
+                <div className="p-4 border border-gridline bg-charcoal group-hover:bg-electric-blue transition-colors duration-500 rounded-none relative">
                   <div className="absolute top-0 left-0 w-1 h-1 bg-off-white" />
                   <div className="absolute top-0 right-0 w-1 h-1 bg-off-white" />
                   <div className="absolute bottom-0 left-0 w-1 h-1 bg-off-white" />

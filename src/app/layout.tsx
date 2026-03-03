@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${fraunces.variable} antialiased bg-charcoal text-off-white selection:bg-cobalt selection:text-white bg-physics-grid bg-grid-lg`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} ${fraunces.variable} antialiased bg-charcoal text-off-white selection:bg-hot-pink selection:text-white bg-physics-grid bg-grid-lg`}
       >
         <div className="fixed inset-0 bg-physics-grid bg-grid-sm opacity-50 pointer-events-none -z-50" />
         <Navbar />
