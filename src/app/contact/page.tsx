@@ -1,10 +1,58 @@
 "use client";
 
+import { useState } from "react";
 import LineOverlay from "@/components/ui/LineOverlay";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { VectorGrid, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
 
 export default function ContactPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    project_name: "",
+    architecture_details: "",
+  });
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("submitting");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry");
+      }
+
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        project_name: "",
+        architecture_details: "",
+      });
+    } catch (error: any) {
+      console.error("Submit error:", error);
+      setStatus("error");
+      setErrorMessage(error.message || "Something went wrong.");
+    }
+  };
+
   return (
     <div className="relative w-full bg-transparent min-h-screen pt-32 pb-24">
       <LineOverlay />
@@ -62,32 +110,79 @@ export default function ContactPage() {
 
             {/* High-Contrast Brutalist Form */}
             <div className="lg:col-span-7">
-               <form className="bg-navy/50 border border-gridline p-8 md:p-12 backdrop-blur-md relative overflow-hidden">
+               <form onSubmit={handleSubmit} className="bg-navy/50 border border-gridline p-8 md:p-12 backdrop-blur-md relative overflow-hidden">
                   <VectorGrid className="opacity-20 text-electric-blue" />
                   <div className="relative z-10">
+                      {status === "success" && (
+                        <div className="mb-8 p-4 bg-neon-green/10 border border-neon-green text-neon-green font-mono text-sm tracking-widest text-center">
+                          Data Transmitted Successfully. We will be in touch.
+                        </div>
+                      )}
+                      {status === "error" && (
+                        <div className="mb-8 p-4 bg-hot-pink/10 border border-hot-pink text-hot-pink font-mono text-sm tracking-widest text-center">
+                          Error: {errorMessage}
+                        </div>
+                      )}
+
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                          <div className="space-y-2">
                             <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">Name</label>
-                            <input type="text" placeholder="John Doe" className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" />
+                            <input 
+                              type="text" 
+                              name="name"
+                              value={formData.name}
+                              onChange={handleChange}
+                              required
+                              placeholder="John Doe" 
+                              className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" 
+                            />
                          </div>
                          <div className="space-y-2">
                             <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">Email</label>
-                            <input type="email" placeholder="john@startup.com" className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" />
+                            <input 
+                              type="email" 
+                              name="email"
+                              value={formData.email}
+                              onChange={handleChange}
+                              required
+                              placeholder="john@startup.com" 
+                              className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" 
+                            />
                          </div>
                       </div>
 
                       <div className="space-y-2 mb-6">
                          <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">System / Project Name</label>
-                         <input type="text" placeholder="Acme Inc." className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" />
+                         <input 
+                           type="text" 
+                           name="project_name"
+                           value={formData.project_name}
+                           onChange={handleChange}
+                           required
+                           placeholder="Acme Inc." 
+                           className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors rounded-none placeholder:text-gridline" 
+                         />
                       </div>
 
                       <div className="space-y-2 mb-10">
                          <label className="text-off-white/50 font-mono text-xs font-bold uppercase tracking-widest px-2 block">Architecture Details</label>
-                         <textarea rows={5} placeholder="Tell us about the vision, timeline, and current state..." className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors resize-none rounded-none placeholder:text-gridline" />
+                         <textarea 
+                           name="architecture_details"
+                           value={formData.architecture_details}
+                           onChange={handleChange}
+                           required
+                           rows={5} 
+                           placeholder="Tell us about the vision, timeline, and current state..." 
+                           className="w-full bg-charcoal border border-gridline px-6 py-4 font-mono text-sm tracking-widest text-off-white focus:outline-none focus:border-neon-cyan transition-colors resize-none rounded-none placeholder:text-gridline" 
+                         />
                       </div>
 
-                      <button type="button" className="w-full py-5 bg-cyber-yellow text-charcoal font-mono font-bold uppercase tracking-widest text-sm hover:glow-yellow transition-all flex items-center justify-center gap-2 border border-gridline">
-                         Transmit Data <ArrowRight size={18} />
+                      <button 
+                        type="submit" 
+                        disabled={status === "submitting"}
+                        className="w-full py-5 bg-cyber-yellow text-charcoal font-mono font-bold uppercase tracking-widest text-sm hover:glow-yellow transition-all flex items-center justify-center gap-2 border border-gridline disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                         {status === "submitting" ? "Transmitting..." : "Transmit Data"} <ArrowRight size={18} />
                       </button>
                   </div>
                </form>
