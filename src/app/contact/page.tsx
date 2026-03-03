@@ -34,7 +34,7 @@ export default function ContactPage() {
                <div>
                   <h3 className="font-grotesk italic font-light text-3xl md:text-5xl text-off-white mb-6">THE STUDIO</h3>
                   <p className="text-off-white/60 font-grotesk font-light text-lg leading-relaxed mb-8">
-                     We operate out of Chandigarh University TBI. We selective about the projects we take on. If you&apos;re a founder with a clear vision, we want to hear from you.
+                     We operate out of Chandigarh but we have felt our presence everywhere. We selective about the projects we take on. If you&apos;re a founder with a clear vision, we want to hear from you.
                   </p>
                </div>
                
@@ -45,7 +45,7 @@ export default function ContactPage() {
                      </div>
                      <div>
                         <p className="text-off-white/40 font-mono text-xs font-bold uppercase tracking-widest mb-1">Comm.Link</p>
-                        <p className="text-off-white font-mono text-sm tracking-widest uppercase">hello@thefableslab.com</p>
+                        <p className="text-off-white font-mono text-sm tracking-widest uppercase">imysuraj1218@gmail.com</p>
                      </div>
                   </div>
                   <div className="flex items-center gap-4 group">
@@ -54,7 +54,7 @@ export default function ContactPage() {
                      </div>
                      <div>
                         <p className="text-off-white/40 font-mono text-xs font-bold uppercase tracking-widest mb-1">Base.Coords</p>
-                        <p className="text-off-white font-mono text-sm tracking-widest uppercase">Chandigarh University TBI</p>
+                        <p className="text-off-white font-mono text-sm tracking-widest uppercase">Aura Avenue, Mohali, Punjab</p>
                      </div>
                   </div>
                </div>

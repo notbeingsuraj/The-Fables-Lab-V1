@@ -61,7 +61,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t-[0.5px] border-white/10">
           <p className="text-white/40 text-xs font-light">
-            © {new Date().getFullYear()} The Fables Lab. Base: Chandigarh University TBI.
+            © {new Date().getFullYear()} The Fables Lab. Base: Chandigarh.
           </p>
           <div className="flex gap-4 mt-4 md:mt-0 text-white/40 text-xs">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
