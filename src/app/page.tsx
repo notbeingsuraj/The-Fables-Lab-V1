@@ -21,7 +21,7 @@ const FEATURED_PROJECTS = [
     id: "aethos",
     name: "Aethos Finance",
     description: "DeFi dashboard redefining institutional crypto management. Simplified complex data visualization into a stunning, modular UI.",
-    image: "https://images.unsplash.com/photo-1639762681485-074b7f4fc8bc?q=80&w=2000&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000&auto=format&fit=crop",
     tags: ["React", "Web3", "D3.js", "GraphQL"],
     color: "neon-purple" as const,
   },
