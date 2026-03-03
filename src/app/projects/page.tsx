@@ -6,12 +6,12 @@ import ProjectCard from "@/components/ui/ProjectCard";
 import { VectorGrid } from "@/components/ui/PhysicsIllustrations";
 
 const ALL_PROJECTS = [
-  { id: "carefree", name: "Carefree Mobility", description: "Premium car rental MVP built with Next.js & Framer Motion.", image: "", tags: ["Next.js", "Tailwind", "Supabase"], color: "neon-cyan" as const },
-  { id: "aethos", name: "Aethos Finance", description: "DeFi dashboard redefining institutional crypto management.", image: "", tags: ["React", "Web3", "D3.js"], color: "cyber-yellow" as const },
-  { id: "lumina", name: "Lumina AI", description: "Enterprise AI content generator prototype.", image: "", tags: ["OpenAI", "Next.js", "Pinecone"], color: "hot-pink" as const },
-  { id: "strata", name: "Strata Homes", description: "PropTech marketplace for fractional real estate investment.", image: "", tags: ["React Native", "Firebase", "Stripe"], color: "electric-blue" as const },
-  { id: "nexus", name: "Nexus Health", description: "Telehealth scheduling app for boutique clinics.", image: "", tags: ["Nuxt", "Vue", "PostgreSQL"], color: "neon-green" as const },
-  { id: "vertex", name: "Vertex Analytics", description: "B2B SaaS data visualization tool for e-commerce.", image: "", tags: ["Next.js", "Prisma", "AWS"], color: "neon-purple" as const },
+  { id: "carefree", name: "Carefree Mobility", description: "Premium car rental MVP built with Next.js & Framer Motion.", image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2000&auto=format&fit=crop", tags: ["Next.js", "Tailwind", "Supabase"], color: "neon-cyan" as const },
+  { id: "aethos", name: "Aethos Finance", description: "DeFi dashboard redefining institutional crypto management.", image: "https://images.unsplash.com/photo-1639762681485-074b7f4fc8bc?q=80&w=2000&auto=format&fit=crop", tags: ["React", "Web3", "D3.js"], color: "cyber-yellow" as const },
+  { id: "lumina", name: "Lumina AI", description: "Enterprise AI content generator prototype.", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop", tags: ["OpenAI", "Next.js", "Pinecone"], color: "hot-pink" as const },
+  { id: "strata", name: "Strata Homes", description: "PropTech marketplace for fractional real estate investment.", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop", tags: ["React Native", "Firebase", "Stripe"], color: "electric-blue" as const },
+  { id: "nexus", name: "Nexus Health", description: "Telehealth scheduling app for boutique clinics.", image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=2000&auto=format&fit=crop", tags: ["Nuxt", "Vue", "PostgreSQL"], color: "neon-green" as const },
+  { id: "vertex", name: "Vertex Analytics", description: "B2B SaaS data visualization tool for e-commerce.", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop", tags: ["Next.js", "Prisma", "AWS"], color: "neon-purple" as const },
 ];
 
 export default function ProjectsPage() {
