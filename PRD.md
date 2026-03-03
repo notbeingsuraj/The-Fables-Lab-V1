@@ -1,99 +1,137 @@
 Product Name
 
-Carefree – Modern Mobility Platform
+The Fables Lab Website (Vibrant Grid Edition)
 
 Vision
 
-Carefree is a vibrant, premium car rental platform that delivers seamless booking with a visually striking, grid-based design system combining line architecture (like Gully Labs) and Spotify-style content cards.
+Create a cinematic, high-design, modern product studio website that blends:
+
+Geometric line architecture (Gully Labs-inspired)
+
+Bold, vibrant color blocks
+
+Spotify-style modular project cards
+
+Editorial layout
+
+Dark immersive UI
+
+The website must communicate:
+
+Speed
+
+Technical depth
+
+Startup execution power
+
+Creative intelligence
+
+Modern design maturity
+
+Primary Goals
+
+Showcase product studio capability.
+
+Display case studies (Carefree, etc.).
+
+Convert founders into discovery calls.
+
+Establish brand authority.
 
 Target Audience
 
-Urban 18–35
+Early-stage founders
 
-Students & working professionals
+Startup teams
 
-Short-term renters
+Incubators
 
-Weekend travelers
+Investors
 
-Airport travelers
+Tech entrepreneurs
 
-Core Features
+(Which aligns perfectly with your role in Chandigarh University TBI.)
 
-1. Home Page
+Core Pages
 
-Line-grid overlay system (animated subtle lines)
+1. Home
 
-Hero with bold gradient background
+Bold statement hero
 
-Featured cars (Spotify-style cards)
+Animated line-grid background
 
-Quick search (Location, Date, Time)
+Strong value proposition
 
-CTA: “Book Now”
+Highlighted projects (Spotify-style cards)
 
-2. Browse Cars
+Process section
 
-Filter by:
+CTA: “Start Your MVP”
 
-Price
+2. Projects (Case Studies)
 
-Car Type
+Card-based layout
 
-Fuel Type
+Each project opens detailed case page
 
-Transmission
+Metrics-driven storytelling
 
-Card layout (grid)
+Include:
 
-Hover interaction (elevation + glow)
+Carefree (Car rental MVP)
 
-3. Car Details
+Future builds
 
-Full-width hero image
+3. Services
 
-Specs blocks in colorful panels
+MVP Development
 
-Booking summary sidebar
+Product Strategy
 
-Real-time availability indicator
+UI/UX Systems
 
-4. Booking System
+Tech Consulting
 
-Date selection
+Presented in vibrant blocks with strong typography.
 
-Pricing logic
+4. Process
 
-Checkout (mock payment)
+Discovery
 
-Booking confirmation
+Architecture
 
-5. Admin Panel
+Rapid Build
 
-Add/Edit Cars
+Launch
 
-Toggle availability
+Each stage in a colorful modular panel.
 
-Manage pricing
+5. Contact / Book a Call
 
-Non-Functional Requirements
+Simple form
 
-Fast loading (<2s)
+Strong CTA
+
+Minimal friction
+
+Functional Requirements
 
 Fully responsive
 
-Animated but lightweight
+Smooth animations
 
-SEO optimized
+Fast loading
+
+SEO-ready
 
 Modular components
 
 Success Metrics
 
-Booking conversion rate
+Inquiry conversion rate
 
-Avg session duration
+Time spent on case studies
 
-Bounce rate
+Scroll depth
 
-Admin update efficiency
+Call bookings

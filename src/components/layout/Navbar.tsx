@@ -13,18 +13,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <Link href="/" className="flex items-center space-x-2 group">
-            <span className="font-grotesk font-black text-2xl tracking-tighter text-white group-hover:text-electric-blue transition-colors duration-300">
-              CAREFREE.
+            <span className="font-grotesk font-black text-2xl tracking-tighter text-white group-hover:text-electric-blue transition-colors duration-300 uppercase">
+              The Fables Lab.
             </span>
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8 items-center">
-            {["Browse Cars", "Locations", "About"].map((item) => (
+            {["Projects", "Services", "Process"].map((item) => (
               <Link
                 key={item}
                 href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group"
+                className="text-sm font-medium text-white/70 hover:text-white transition-colors relative group uppercase tracking-wider"
               >
                 {item}
                 <motion.span
@@ -33,10 +33,10 @@ export default function Navbar() {
               </Link>
             ))}
             <Link
-              href="/booking"
-              className="px-5 py-2.5 rounded-full bg-neon-green text-black font-bold text-sm tracking-wide hover:glow-neon-green transition-all duration-300 transform hover:scale-105"
+              href="/contact"
+              className="px-6 py-2.5 rounded-full bg-neon-green text-charcoal font-bold text-sm tracking-widest uppercase hover:glow-neon-green transition-all duration-300 transform hover:scale-105"
             >
-              BOOK NOW
+              Start Your MVP
             </Link>
           </div>
 
@@ -59,25 +59,25 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-charcoal border-b-[0.5px] border-white/10 overflow-hidden"
+            className="md:hidden bg-navy border-b-[0.5px] border-white/10 overflow-hidden"
           >
             <div className="px-4 pt-2 pb-6 space-y-4 flex flex-col">
-              {["Browse Cars", "Locations", "About"].map((item) => (
+              {["Projects", "Services", "Process"].map((item) => (
                 <Link
                   key={item}
                   href={`/${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-lg font-medium text-white/70 hover:text-white block"
+                  className="text-lg font-bold text-white/70 hover:text-white block uppercase tracking-wide"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
                 </Link>
               ))}
               <Link
-                href="/booking"
-                className="inline-block mt-4 px-6 py-3 rounded-full bg-neon-green text-black font-bold text-center tracking-wide"
+                href="/contact"
+                className="inline-block mt-4 px-6 py-4 border border-neon-green text-neon-green hover:bg-neon-green hover:text-charcoal font-black text-center uppercase tracking-widest transition-colors duration-300"
                 onClick={() => setIsOpen(false)}
               >
-                BOOK NOW
+                Start Your MVP
               </Link>
             </div>
           </motion.div>
@@ -86,6 +86,3 @@ export default function Navbar() {
     </nav>
   );
 }
-
-// Ensure AnimatePresence is used properly, we'll actually import it from framer-motion inside the component
-// Let's replace AnimatePresence correctly

@@ -1,19 +1,31 @@
-Visual Direction
 Core Aesthetic
 
-Thin geometric line overlays
+This is NOT a SaaS template.
 
-Vibrant background blocks
+It is:
 
-Large rounded card modules
+Cinematic
 
-Soft glow shadows
+Grid-based
 
-Editorial typography
+Bold
 
-Color Strategy
+Minimal but powerful
 
-Primary:
+Structured chaos (intentional asymmetry)
+
+Visual System
+Background
+
+Deep charcoal or navy
+
+Thin 1px geometric line segments
+
+Subtle animated grid motion
+
+Color System
+
+Primary Accents:
 
 Electric Blue
 
@@ -25,61 +37,54 @@ Purple
 
 Bright Orange
 
-Background:
-
-Deep charcoal
-
-Dark navy
-
-Gradient blends
+Use large vibrant rectangular blocks layered within the grid.
 
 Layout System
-Grid System
 
 12-column responsive grid
 
-Overlapping blocks
+Overlapping color sections
 
-Intentional negative space
+Strong negative space
 
-Thin 1px white/low-opacity line segments across sections
+Thin line dividers
+
+Asymmetric placements
 
 Card System (Spotify Inspired)
 
-Each car card includes:
+Project Cards must include:
 
 Large cover image
 
-Bold car name
+Rounded 24px corners
 
-Small metadata row
+Project name
 
-Price tag badge
+Short description
 
-Rounded 20–24px border radius
+Tag badges (MERN, SaaS, AI, etc.)
 
-Glow on hover
+Hover glow
 
-Slight scale transform
-
-Motion Design
-
-Subtle line animations
-
-Card hover lift
-
-Smooth fade transitions
-
-Micro-interactions on buttons
+Slight scale animation
 
 Typography
 
-Headings:
+Large bold grotesk headings
 
-Bold grotesk font
+Uppercase micro labels
 
-Uppercase section headers
+Tight tracking for hero headlines
 
-Body:
+Clean sans-serif body
 
-Clean sans-serif
+Motion Design
+
+Scroll-based fade-in
+
+Line animation on load
+
+Hover elevation effects
+
+Smooth page transitions

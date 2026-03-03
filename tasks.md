@@ -1,55 +1,51 @@
-Phase 1 – Structure
+Phase 1 – Foundation
 
-Setup Next.js project
+Setup Next.js 14
 
 Configure Tailwind
 
-Create layout component
+Setup folder structure
 
-Setup routing
+Create layout wrapper
 
-Create navbar (transparent + animated line underline)
+Build navbar
 
-Footer design
+Build footer
 
-Phase 2 – Visual System
+Phase 2 – Design System
 
-Build line overlay component
+Build animated line-grid overlay
 
-Create color block system
+Define color tokens
 
-Build Spotify-style card component
+Create reusable card component
 
-Add hover animations
+Build vibrant block sections
 
-Implement grid layout
+Implement typography system
 
-Phase 3 – Core Features
+Phase 3 – Core Pages
 
-Car listing API
+Home page layout
 
-Filter system
+Projects page
 
-Booking logic
+Individual case study template
 
-Pricing calculator
+Services page
 
-Checkout mock
+Process section
 
-Phase 4 – Admin
+Contact page
 
-Admin login
+Phase 4 – Optimization
 
-CRUD operations
+Performance audit
 
-Availability toggle
+Responsive tuning
 
-Phase 5 – Polish
+SEO meta setup
 
-Responsive optimization
-
-Performance optimization
-
-SEO meta tags
+Accessibility checks
 
 Deployment

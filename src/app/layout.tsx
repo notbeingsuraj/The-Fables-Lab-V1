@@ -16,8 +16,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Carefree | The Next Gen Car Rental",
-  description: "A production-ready modern car rental platform with stunning design.",
+  title: "The Fables Lab | Where Ancient Stories Meet Future Tech",
+  description: "Product studio building investor-ready MVPs in under 30 days.",
 };
 
 export default function RootLayout({
@@ -31,7 +31,7 @@ export default function RootLayout({
         className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-charcoal text-white selection:bg-hot-pink selection:text-white`}
       >
         <Navbar />
-        <main className="min-h-screen pt-20">
+        <main className="min-h-screen pt-20 flex flex-col items-center">
           {children}
         </main>
         <Footer />
