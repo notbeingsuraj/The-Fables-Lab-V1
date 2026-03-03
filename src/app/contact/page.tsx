@@ -2,23 +2,25 @@
 
 import LineOverlay from "@/components/ui/LineOverlay";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
-import { VectorGrid } from "@/components/ui/PhysicsIllustrations";
+import { VectorGrid, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
 
 export default function ContactPage() {
   return (
     <div className="relative w-full bg-transparent min-h-screen pt-32 pb-24">
       <LineOverlay />
       <VectorGrid className="opacity-10" />
+      <GeometricShapes className="opacity-60 mix-blend-screen z-0" />
+      <HandDrawnLines className="opacity-50 z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full mb-16 pt-12 text-center border-x border-gridline bg-charcoal/50 pb-16">
             <span className="text-neon-cyan font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// Initialize Sequence"}</span>
             <h1 className="font-grotesk font-black text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
               START YOUR <br />
-              <span className="font-serif italic font-light text-transparent text-stroke">
+              <span className="font-grotesk italic font-light text-transparent text-stroke">
                 BUILD.
               </span>
             </h1>
-            <p className="text-xl text-off-white/70 max-w-2xl mx-auto font-serif font-light leading-relaxed">
+            <p className="text-xl text-off-white/70 max-w-2xl mx-auto font-grotesk font-light leading-relaxed">
               Skip the agency bloat. We build precise, high-performance MVPs in 30 days. Define parameters below via standard protocol.
             </p>
       </div>
@@ -30,8 +32,8 @@ export default function ContactPage() {
             {/* Contact Info */}
             <div className="lg:col-span-5 space-y-12 pr-8 border-b md:border-b-0 md:border-r border-gridline pb-12 md:pb-0">
                <div>
-                  <h3 className="font-serif italic font-light text-3xl md:text-5xl text-off-white mb-6">THE STUDIO</h3>
-                  <p className="text-off-white/60 font-serif font-light text-lg leading-relaxed mb-8">
+                  <h3 className="font-grotesk italic font-light text-3xl md:text-5xl text-off-white mb-6">THE STUDIO</h3>
+                  <p className="text-off-white/60 font-grotesk font-light text-lg leading-relaxed mb-8">
                      We operate out of Chandigarh University TBI. We selective about the projects we take on. If you&apos;re a founder with a clear vision, we want to hear from you.
                   </p>
                </div>

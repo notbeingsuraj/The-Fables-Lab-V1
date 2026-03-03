@@ -82,7 +82,7 @@ export default function ProjectCard({
 
         {/* Content */}
         <div className="px-2 flex flex-col flex-grow">
-          <h3 className={`font-serif font-light italic text-3xl mb-2 text-off-white transition-colors duration-300 ${textHoverMap[color]}`}>
+          <h3 className={`font-grotesk font-light italic text-3xl mb-2 text-off-white transition-colors duration-300 ${textHoverMap[color]}`}>
             {name}
           </h3>
           <p className="text-off-white/60 font-light text-sm mb-6 flex-grow leading-relaxed">

@@ -5,7 +5,7 @@ import { ArrowRight, Zap, Code2, Rocket } from "lucide-react";
 import LineOverlay from "@/components/ui/LineOverlay";
 import ColorBlock from "@/components/layout/ColorBlock";
 import ProjectCard from "@/components/ui/ProjectCard";
-import { VectorGrid, TopographicPattern, MagneticField } from "@/components/ui/PhysicsIllustrations";
+import { VectorGrid, TopographicPattern, MagneticField, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
 import Link from "next/link";
 
 const FEATURED_PROJECTS = [
@@ -40,6 +40,8 @@ export default function Home() {
     <div className="relative w-full bg-transparent">
       <LineOverlay />
       <VectorGrid className="opacity-10" />
+      <GeometricShapes className="opacity-60 mix-blend-screen z-0" />
+      <HandDrawnLines className="opacity-50 z-0" />
 
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20 overflow-hidden border-b border-gridline">
@@ -69,12 +71,12 @@ export default function Home() {
               </div>
               
               <h1 className="font-grotesk font-black text-6xl md:text-8xl lg:text-[10rem] tracking-tighter leading-[0.85] text-off-white overflow-hidden mb-8">
-                BUILD <span className="font-serif italic font-light text-neon-cyan">FAST.</span> <br />
-                SCALE <span className="text-transparent text-stroke italic font-serif">NOW.</span>
+                BUILD <span className="font-grotesk italic font-light text-neon-cyan">FAST.</span> <br />
+                SCALE <span className="text-transparent text-stroke italic font-grotesk">NOW.</span>
               </h1>
               
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 border-t border-gridline pt-8 mt-12">
-                 <p className="md:col-span-6 text-xl md:text-2xl text-off-white/70 font-serif font-light leading-relaxed">
+                 <p className="md:col-span-6 text-xl md:text-2xl text-off-white/70 font-grotesk font-light leading-relaxed">
                    We are a product studio that crafts investor-ready MVPs in under 30 days. No fluff, just premium engineering and absolute aesthetic precision.
                  </p>
                  <div className="md:col-span-6 flex flex-col justify-end items-start md:items-end">
@@ -104,7 +106,7 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <span className="text-safety-orange font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// Case Studies"}</span>
-              <h2 className="font-serif italic font-light text-5xl md:text-7xl tracking-tighter text-off-white">
+              <h2 className="font-grotesk italic font-light text-5xl md:text-7xl tracking-tighter text-off-white">
                 RECENT <br /> <span className="font-grotesk font-black not-italic">LAUNCHES.</span>
               </h2>
             </motion.div>
@@ -142,9 +144,9 @@ export default function Home() {
             <div className="relative z-10">
                 <span className="text-cyber-yellow font-mono font-bold text-xs tracking-widest uppercase mb-4 block">[ Thesis ]</span>
                 <h2 className="font-grotesk font-black text-5xl lg:text-7xl tracking-tighter text-off-white leading-[0.9] mb-8">
-                  SPEED IS <br/> <span className="font-serif italic font-light">A FEATURE.</span>
+                  SPEED IS <br/> <span className="font-grotesk italic font-light">A FEATURE.</span>
                 </h2>
-                <p className="text-off-white/80 font-serif font-light text-lg leading-relaxed mb-10">
+                <p className="text-off-white/80 font-grotesk font-light text-lg leading-relaxed mb-10">
                   Founders lose momentum waiting months for agencies to deliver. We utilize robust layered architectures, AI-assisted coding, and mathematical precision to build production-ready MVPs in weeks.
                 </p>
                 <Link 
@@ -179,7 +181,7 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="font-grotesk font-bold text-2xl mb-3 tracking-wide">{item.title}</h4>
-                  <p className="text-off-white/60 font-serif font-light leading-relaxed text-base">{item.desc}</p>
+                  <p className="text-off-white/60 font-grotesk font-light leading-relaxed text-base">{item.desc}</p>
                 </div>
               </motion.div>
             ))}

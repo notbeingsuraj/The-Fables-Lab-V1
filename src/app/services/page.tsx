@@ -3,7 +3,7 @@
 import { Code2, Smartphone, Terminal, LayoutTemplate, ArrowRight } from "lucide-react";
 import LineOverlay from "@/components/ui/LineOverlay";
 import ColorBlock from "@/components/layout/ColorBlock";
-import { TopographicPattern, VectorGrid, MagneticField } from "@/components/ui/PhysicsIllustrations";
+import { TopographicPattern, VectorGrid, MagneticField, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
 import Link from "next/link";
 
 const SERVICES = [
@@ -46,6 +46,8 @@ export default function ServicesPage() {
     <div className="relative w-full bg-transparent min-h-screen">
       <LineOverlay />
       <VectorGrid className="opacity-10" />
+      <GeometricShapes className="opacity-60 mix-blend-screen z-0" />
+      <HandDrawnLines className="opacity-50 z-0" />
 
       {/* Header */}
       <section className="relative pt-32 pb-20 overflow-hidden border-b border-gridline bg-charcoal">
@@ -53,13 +55,13 @@ export default function ServicesPage() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center border-x border-gridline min-h-[40vh] flex flex-col justify-center">
             <span className="text-neon-green font-mono font-bold text-xs tracking-widest uppercase mb-4 block">Sys / Capabilities</span>
-            <h1 className="font-serif italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
+            <h1 className="font-grotesk italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
               WHAT WE <br />
               <span className="font-grotesk not-italic font-black text-transparent text-stroke">
                 BUILD.
               </span>
             </h1>
-            <p className="text-xl text-off-white/70 max-w-2xl mx-auto font-serif font-light leading-relaxed">
+            <p className="text-xl text-off-white/70 max-w-2xl mx-auto font-grotesk font-light leading-relaxed">
               We operate at the bleeding edge of product development, combining robust engineering mathematical precision with elite design to launch startups that win.
             </p>
         </div>
@@ -76,7 +78,7 @@ export default function ServicesPage() {
                         <service.icon size={32} className={`text-${service.color}`} />
                       </div>
                       <h2 className="font-grotesk font-black text-5xl md:text-6xl tracking-tighter mb-6 uppercase">{service.title}</h2>
-                      <p className="text-lg text-off-white/70 font-serif font-light leading-relaxed mb-8 max-w-lg">
+                      <p className="text-lg text-off-white/70 font-grotesk font-light leading-relaxed mb-8 max-w-lg">
                          {service.desc}
                       </p>
                       

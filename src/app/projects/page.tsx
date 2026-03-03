@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import LineOverlay from "@/components/ui/LineOverlay";
 import ProjectCard from "@/components/ui/ProjectCard";
-import { VectorGrid } from "@/components/ui/PhysicsIllustrations";
+import { VectorGrid, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
 
 const ALL_PROJECTS = [
   { id: "carefree", name: "Carefree Mobility", description: "Premium car rental MVP built with Next.js & Framer Motion.", image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2000&auto=format&fit=crop", tags: ["Next.js", "Tailwind", "Supabase"], color: "neon-cyan" as const },
@@ -19,6 +19,8 @@ export default function ProjectsPage() {
     <div className="relative w-full bg-transparent min-h-screen pt-24 pb-32">
       <LineOverlay />
       <VectorGrid className="opacity-10" />
+      <GeometricShapes className="opacity-60 mix-blend-screen z-0" />
+      <HandDrawnLines className="opacity-50 z-0" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full border-x border-gridline pt-12">
         {/* Header */}
@@ -29,13 +31,13 @@ export default function ProjectsPage() {
             transition={{ duration: 0.8 }}
           >
             <span className="text-cobalt font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// Our Work"}</span>
-            <h1 className="font-serif italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-6 leading-[0.9]">
+            <h1 className="font-grotesk italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-6 leading-[0.9]">
               SELECTED <br />
               <span className="font-grotesk not-italic font-black text-transparent text-stroke">
                 PROJECTS.
               </span>
             </h1>
-            <p className="text-xl text-off-white/70 max-w-2xl font-serif font-light leading-relaxed">
+            <p className="text-xl text-off-white/70 max-w-2xl font-grotesk font-light leading-relaxed">
               We move fast and break legacy paradigms. Here is a selection of MVPs, platforms, and digital experiences we&apos;ve engineered from the ground up out of Chandigarh University TBI.
             </p>
           </motion.div>

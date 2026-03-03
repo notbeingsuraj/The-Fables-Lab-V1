@@ -2,7 +2,7 @@
 
 import LineOverlay from "@/components/ui/LineOverlay";
 import ColorBlock from "@/components/layout/ColorBlock";
-import { TopographicPattern, VectorGrid, MagneticField } from "@/components/ui/PhysicsIllustrations";
+import { TopographicPattern, VectorGrid, MagneticField, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
 import { Search, PenTool, Braces, Rocket } from "lucide-react";
 
 const STEPS = [
@@ -45,19 +45,21 @@ export default function ProcessPage() {
     <div className="relative w-full bg-transparent min-h-screen pt-20">
       <LineOverlay />
       <VectorGrid className="opacity-10" />
+      <GeometricShapes className="opacity-60 mix-blend-screen z-0" />
+      <HandDrawnLines className="opacity-50 z-0" />
 
       <section className="relative pt-20 pb-20 border-b border-gridline bg-charcoal overflow-hidden">
         <MagneticField className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[1200px] h-[1200px] text-hot-pink opacity-5" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full border-x border-gridline pt-12 min-h-[40vh] flex flex-col justify-center">
             <span className="text-hot-pink font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// The Formula"}</span>
-            <h1 className="font-serif italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
+            <h1 className="font-grotesk italic font-light text-6xl md:text-8xl tracking-tighter text-off-white mb-8">
               HOW WE <br />
               <span className="font-grotesk not-italic font-black text-transparent text-stroke">
                 OPERATE.
               </span>
             </h1>
-            <p className="text-xl text-off-white/70 max-w-2xl font-serif font-light leading-relaxed">
+            <p className="text-xl text-off-white/70 max-w-2xl font-grotesk font-light leading-relaxed">
               We have productized startup engineering. Our 30-day MVP framework minimizes risk, eliminates redundant meetings, and maximizes speed to market.
             </p>
         </div>
@@ -87,10 +89,10 @@ export default function ProcessPage() {
                      <div className={`p-4 border border-gridline bg-charcoal shadow-[0_0_20px_rgba(255,255,255,0.02)]`}>
                         <step.icon size={28} className={`text-${step.color}`} />
                      </div>
-                     <h3 className="font-serif italic font-light text-4xl md:text-5xl text-off-white">{step.title}</h3>
+                     <h3 className="font-grotesk italic font-light text-4xl md:text-5xl text-off-white">{step.title}</h3>
                    </div>
                    
-                   <p className="text-off-white/70 font-serif font-light leading-relaxed text-lg mb-12 max-w-2xl">
+                   <p className="text-off-white/70 font-grotesk font-light leading-relaxed text-lg mb-12 max-w-2xl">
                      {step.desc}
                    </p>
 
@@ -118,9 +120,9 @@ export default function ProcessPage() {
              <VectorGrid className="opacity-20 text-electric-blue" />
              <div className="relative z-10">
                  <h2 className="font-grotesk font-black text-6xl md:text-8xl tracking-tighter mb-8 leading-[0.9] text-off-white">
-                    READY TO <br/><span className="font-serif italic font-light text-electric-blue">BUILD?</span>
+                    READY TO <br/><span className="font-grotesk italic font-light text-electric-blue">BUILD?</span>
                  </h2>
-                 <p className="text-off-white/70 font-serif font-light text-xl mb-12 max-w-xl mx-auto">
+                 <p className="text-off-white/70 font-grotesk font-light text-xl mb-12 max-w-xl mx-auto">
                     Our next cohort begins soon. Secure your build slot and let&apos;s turn your concept into a tangible product.
                  </p>
                  <button className="px-8 py-4 bg-electric-blue text-off-white font-mono font-bold text-sm uppercase tracking-widest hover:glow-cyan transition-all duration-300">
