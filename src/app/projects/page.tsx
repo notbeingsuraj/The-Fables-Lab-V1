@@ -1,20 +1,34 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { motion } from "framer-motion";
 import LineOverlay from "@/components/ui/LineOverlay";
 import ProjectCard from "@/components/ui/ProjectCard";
 import { VectorGrid, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
-
-const ALL_PROJECTS = [
-  { id: "carefree", name: "Carefree Mobility", description: "Premium car rental MVP built with Next.js. I engineered a fluid, high-octane UI that absolutely destroyed previous bounds of performance.", image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=2000&auto=format&fit=crop", tags: ["Next.js", "Tailwind", "Supabase"], color: "neon-cyan" as const },
-  { id: "aethos", name: "Aethos Finance", description: "DeFi dashboard redefining institutional crypto management. I tamed chaotic Web3 data streams into a cinematic, ultra-responsive terminal.", image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2000&auto=format&fit=crop", tags: ["React", "Web3", "D3.js"], color: "cyber-yellow" as const },
-  { id: "lumina", name: "Lumina AI", description: "Enterprise AI content generator prototype. Rapid 3-week sprint combining raw API power with an intensely vibrant, premium interface.", image: "https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2000&auto=format&fit=crop", tags: ["OpenAI", "Next.js", "Pinecone"], color: "hot-pink" as const },
-  { id: "strata", name: "Strata Homes", description: "PropTech marketplace for fractional real estate. Structured a secure, rigid geometric design system with a high-fashion aesthetic.", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop", tags: ["React Native", "Firebase", "Stripe"], color: "electric-blue" as const },
-  { id: "nexus", name: "Nexus Health", description: "Telehealth scheduling app for boutique clinics. Architected for severe load spikes while maintaining a serene architectural layout.", image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop", tags: ["Nuxt", "Vue", "PostgreSQL"], color: "neon-green" as const },
-  { id: "vertex", name: "Vertex Analytics", description: "B2B SaaS data visualization tool. Built an aggressive streaming pipeline to render millions of rows without a single dropped frame.", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2000&auto=format&fit=crop", tags: ["Next.js", "Prisma", "AWS"], color: "neon-purple" as const },
-];
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export default function ProjectsPage() {
+  const [projects, setProjects] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function load() {
+      const { data } = await supabase.from('projects').select('*').order('created_at', { ascending: true });
+      if (data) {
+        setProjects(data.map(p => ({
+          id: p.slug,
+          name: p.name,
+          description: p.description,
+          image: p.thumbnail,
+          tags: p.tags || [],
+          color: p.color
+        })));
+      }
+      setLoading(false);
+    }
+    load();
+  }, []);
   return (
     <div className="relative w-full bg-transparent min-h-screen pt-24 pb-32">
       <LineOverlay />
@@ -60,8 +74,12 @@ export default function ProjectsPage() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-y border-gridline divide-y md:divide-y-0 md:divide-x divide-gridline">
-          {ALL_PROJECTS.map((project, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-y border-gridline divide-y md:divide-y-0 md:divide-x divide-gridline min-h-[50vh]">
+          {loading ? (
+             <div className="col-span-full flex items-center justify-center p-20">
+               <span className="text-off-white/50 font-mono tracking-widest uppercase animate-pulse">Loading Archive...</span>
+             </div>
+          ) : projects.map((project, i) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 40 }}
