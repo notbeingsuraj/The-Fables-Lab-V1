@@ -1,193 +1,539 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ArrowRight, Zap, Code2, Rocket } from "lucide-react";
-import LineOverlay from "@/components/ui/LineOverlay";
-import ColorBlock from "@/components/layout/ColorBlock";
-import ProjectCard from "@/components/ui/ProjectCard";
-import { VectorGrid, TopographicPattern, MagneticField, GeometricShapes, HandDrawnLines } from "@/components/ui/PhysicsIllustrations";
+import { useRef } from "react";
+import { motion, useScroll, useTransform, useInView } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 
-const FEATURED_PROJECTS = [
+// ─── Utility: Fade-up on scroll ────────────────────────────────────────────
+function FadeUp({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-8% 0px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 28 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+// ─── Utility: Section divider ───────────────────────────────────────────────
+function Divider() {
+  return <div className="w-full h-px bg-border/60" />;
+}
+
+// ─── FEATURES data ──────────────────────────────────────────────────────────
+const FEATURES = [
   {
-    id: "carefree",
-    name: "Carefree Mobility",
-    description: "A premium car rental platform designed to eliminate queues and maximize driving joy. Built with a futuristic aesthetic and robust booking engine.",
-    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?q=80&w=2000&auto=format&fit=crop", 
-    tags: ["Next.js", "Tailwind", "Supabase", "Stripe"],
-    color: "neon-cyan" as const,
+    num: "01",
+    title: "Built for investors, not just users.",
+    body: "Every architectural decision is made with due-diligence in mind. Clean code, clear structure, explainable stack — the kind of codebase that builds confidence in any technical reviewer.",
+    image: "/dashboard-mockup.png",
+    imageAlt: "Clean analytics dashboard",
   },
   {
-    id: "aethos",
-    name: "Aethos Finance",
-    description: "DeFi dashboard redefining institutional crypto management. Simplified complex data visualization into a stunning, modular UI.",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?q=80&w=2000&auto=format&fit=crop",
-    tags: ["React", "Web3", "D3.js", "GraphQL"],
-    color: "neon-purple" as const,
+    num: "02",
+    title: "Speed without sacrificing structure.",
+    body: "We operate with AI-assisted engineering and battle-tested templates. First iteration in 7 days. Full MVP in under 30. No cutting corners — just eliminating waste.",
+    image: "/app-mockup.png",
+    imageAlt: "Mobile app interfaces",
   },
   {
-    id: "lumina",
-    name: "Lumina AI",
-    description: "Enterprise AI content generator MVP. Went from concept to fully functional prototype generating $10k MRR in under 3 weeks.",
-    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2000&auto=format&fit=crop",
-    tags: ["OpenAI", "Next.js", "Pinecone", "SaaS"],
-    color: "hot-pink" as const,
+    num: "03",
+    title: "Design that earns trust on first look.",
+    body: "A product that looks accidental loses traction before a word is spoken. We deliver interfaces that signal competence, clarity, and craft — because first impressions fund companies.",
+    image: "/dashboard-mockup.png",
+    imageAlt: "Product interface design",
   },
 ];
 
+// ─── PROCESS steps ──────────────────────────────────────────────────────────
+const PROCESS = [
+  {
+    step: "01",
+    label: "Discover & Define",
+    body: "We spend the first 48 hours understanding your vision, investor thesis, and user core. No assumptions.",
+  },
+  {
+    step: "02",
+    label: "Design & Build",
+    body: "Parallel UI design and engineering. Your product takes shape in real time — transparency throughout.",
+  },
+  {
+    step: "03",
+    label: "Launch & Validate",
+    body: "Deployed, documented, and demo-ready. Built to withstand investor scrutiny from day one.",
+  },
+];
+
+// ─── METRICS ────────────────────────────────────────────────────────────────
+const METRICS = [
+  { value: "30", unit: "days", label: "average time to launch" },
+  { value: "12+", unit: "", label: "MVPs shipped" },
+  { value: "3", unit: "", label: "startups funded post-launch" },
+  { value: "100%", unit: "", label: "on-time delivery rate" },
+];
+
+// ─── MAIN COMPONENT ─────────────────────────────────────────────────────────
 export default function Home() {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress: heroScroll } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const heroY = useTransform(heroScroll, [0, 1], ["0%", "20%"]);
+  const heroOpacity = useTransform(heroScroll, [0, 0.7], [1, 0]);
+
   return (
-    <div className="relative w-full bg-transparent">
-      <LineOverlay />
-      <VectorGrid className="opacity-10" />
-      <GeometricShapes className="opacity-60 mix-blend-screen z-0" />
-      <HandDrawnLines className="opacity-50 z-0" />
+    <div className="w-full">
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden border-b border-gridline">
-        {/* Physics Geometry Backgrounds */}
-        <div className="absolute top-0 right-0 w-1/2 h-full -z-10 mix-blend-screen opacity-50 flex items-center justify-center">
-            <MagneticField className="w-full max-w-[800px] text-neon-cyan absolute" />
-        </div>
-        
-        {/* Abstract Glows */}
-        <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-electric-blue/20 rounded-full blur-[150px] -z-10 animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[500px] bg-hot-pink/20 rounded-full blur-[150px] -z-10 animate-pulse" style={{ animationDelay: "2s" }} />
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 1 — HERO                                                   */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section
+        id="hero"
+        ref={heroRef}
+        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-void"
+      >
+        {/* Ambient radial glow — single, restrained */}
+        <div className="absolute inset-0 bg-gradient-void pointer-events-none" />
+        {/* Subtle noise grain texture */}
+        <div className="absolute inset-0 noise-overlay pointer-events-none opacity-40" />
 
-        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 border-x border-gridline min-h-[80vh] flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
-            
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="lg:col-span-10 lg:col-start-1"
+        <motion.div
+          style={{ y: heroY, opacity: heroOpacity }}
+          className="relative z-10 w-full max-w-5xl mx-auto px-6 lg:px-8 pt-32 pb-24 text-center"
+        >
+          {/* Eyebrow */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-8"
+          >
+            <span className="inline-block text-xs font-medium text-text-muted uppercase tracking-[0.18em]">
+              Product Studio — Chandigarh
+            </span>
+          </motion.div>
+
+          {/* Headline */}
+          <div className="overflow-hidden mb-6">
+            <motion.h1
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: "0%", opacity: 1 }}
+              transition={{ duration: 0.9, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display font-semibold text-text-primary text-balance leading-[1.04]"
+              style={{
+                fontSize: "clamp(3rem, 7.5vw, 6.5rem)",
+                letterSpacing: "-0.03em",
+              }}
             >
-              <div className="inline-flex items-center gap-3 px-4 py-2 border border-gridline bg-charcoal/50 backdrop-blur-md mb-8">
-                <span className="w-2 h-2 bg-neon-green animate-pulse shadow-[0_0_15px_#39FF14]" />
-                <span className="text-off-white font-mono text-xs tracking-widest uppercase">
-                  Sys.Status: Accepting Projects
-                </span>
-              </div>
-              
-              <h1 className="font-grotesk font-black text-6xl md:text-8xl lg:text-[10rem] tracking-tighter leading-[0.85] text-off-white overflow-hidden mb-8">
-                BUILD <span className="font-grotesk italic font-light text-neon-cyan">FAST.</span> <br />
-                SCALE <span className="text-transparent text-stroke italic font-grotesk">NOW.</span>
-              </h1>
-              
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 border-t border-gridline pt-8 mt-12">
-                 <p className="md:col-span-6 text-xl md:text-2xl text-off-white/70 font-grotesk font-light leading-relaxed">
-                   We are a product studio that crafts investor-ready MVPs in under 30 days. No fluff, just premium engineering and absolute aesthetic precision.
-                 </p>
-                 <div className="md:col-span-6 flex flex-col justify-end items-start md:items-end">
-                    <Link 
-                      href="/contact"
-                      className="px-8 py-4 bg-cyber-yellow text-charcoal font-mono font-bold text-sm uppercase tracking-widest hover:scale-105 hover:glow-yellow transition-all duration-300 w-full md:w-auto text-center"
-                    >
-                      Initialize Build
-                    </Link>
-                 </div>
-              </div>
-            </motion.div>
+              Investor-Ready MVPs.
+              <br />
+              <span className="text-text-secondary font-light">In 30 Days.</span>
+            </motion.h1>
           </div>
-        </div>
-      </section>
 
-      {/* Featured Projects with Grid lines */}
-      <section id="work" className="relative w-full border-b border-gridline bg-charcoal overflow-hidden py-32">
-        <TopographicPattern className="text-electric-blue opacity-5" />
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 border-x border-gridline h-full">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6 border-b border-gridline pb-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
+          {/* Sub */}
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            className="text-text-muted text-lg md:text-xl font-normal max-w-2xl mx-auto mb-12 leading-relaxed"
+          >
+            Built for clarity, traction, and fundability.
+          </motion.p>
+
+          {/* CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <Link
+              id="hero-cta"
+              href="/contact"
+              className="group inline-flex items-center gap-2.5 px-8 py-4 bg-fable-blue text-white font-medium text-sm rounded-pill transition-all duration-300 hover:bg-fable-blue-muted active:scale-[0.98]"
             >
-              <span className="text-safety-orange font-mono font-bold text-xs tracking-widest uppercase mb-4 block">{"// Case Studies"}</span>
-              <h2 className="font-grotesk italic font-light text-5xl md:text-7xl tracking-tighter text-off-white">
-                RECENT <br /> <span className="font-grotesk font-black not-italic">LAUNCHES.</span>
-              </h2>
-            </motion.div>
-            <Link 
-              href="/projects" 
-              className="flex items-center gap-2 text-off-white/50 hover:text-off-white font-mono text-sm uppercase tracking-widest transition-colors group"
-            >
-              All Projects <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              Start your build
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform duration-200"
+              />
             </Link>
-          </div>
+          </motion.div>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-y border-gridline divide-y md:divide-y-0 md:divide-x divide-gridline">
-            {FEATURED_PROJECTS.map((project, i) => (
-              <motion.div
-                key={project.id}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-10%" }}
-                transition={{ duration: 0.8, delay: i * 0.15, ease: [0.16, 1, 0.3, 1] }}
-                className="p-4 md:p-8"
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 0.8 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        >
+          <motion.div
+            animate={{ y: [0, 6, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="w-px h-10 bg-gradient-to-b from-transparent via-text-dim to-transparent"
+          />
+        </motion.div>
+      </section>
+
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 2 — BIG STATEMENT                                         */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="statement" className="relative bg-void py-32 md:py-44 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+          <FadeUp>
+            <blockquote
+              className="font-display font-semibold text-text-primary text-balance"
+              style={{
+                fontSize: "clamp(2rem, 5vw, 4rem)",
+                letterSpacing: "-0.025em",
+                lineHeight: 1.12,
+              }}
+            >
+              &ldquo;Most MVPs are built for demos.
+              <br />
+              <span className="text-text-secondary font-light">We build for deals.&rdquo;</span>
+            </blockquote>
+          </FadeUp>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 3 — PROBLEM                                                */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="problem" className="bg-surface py-24 md:py-36">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            <FadeUp>
+              <span className="block text-xs font-medium text-text-dim uppercase tracking-[0.18em] mb-6">
+                The Problem
+              </span>
+              <h2
+                className="font-display font-semibold text-text-primary"
+                style={{
+                  fontSize: "clamp(2.2rem, 5vw, 4rem)",
+                  letterSpacing: "-0.025em",
+                  lineHeight: 1.1,
+                }}
               >
-                <ProjectCard {...project} />
-              </motion.div>
+                Founders lose
+                <br />
+                6 months.
+              </h2>
+            </FadeUp>
+
+            <FadeUp delay={0.15}>
+              <p className="text-text-secondary text-lg leading-relaxed mt-2 lg:mt-16">
+                Traditional agencies move slowly, charge heavily, and deliver feature lists — not fundable products. By the time they&apos;re done, your runway is shorter, your momentum is gone, and investors want to see traction you don&apos;t have.
+              </p>
+              <p className="text-text-muted text-base leading-relaxed mt-6">
+                The market doesn&apos;t wait. Investors don&apos;t either. And a product that took eight months to build rarely looks like it was worth the wait.
+              </p>
+            </FadeUp>
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 4 — SOLUTION (light contrast section)                      */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="solution" className="bg-light-bg py-24 md:py-36">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeUp className="mb-16 lg:mb-24">
+            <span className="block text-xs font-medium text-light-secondary uppercase tracking-[0.18em] mb-6">
+              How We Work
+            </span>
+            <h2
+              className="font-display font-semibold text-light-text"
+              style={{
+                fontSize: "clamp(2.2rem, 5vw, 4rem)",
+                letterSpacing: "-0.025em",
+                lineHeight: 1.1,
+              }}
+            >
+              We build differently.
+            </h2>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-light-border">
+            {[
+              {
+                icon: "↗",
+                title: "Speed",
+                body: "First working iteration in 7 days. Production-ready MVP in under 30. Not because we rush — because we’ve eliminated everything that wastes time.",
+              },
+              {
+                icon: "◎",
+                title: "Structure",
+                body: "Clean, scalable codebases built on proven stacks. Every decision is documented. Every component is purposeful.",
+              },
+              {
+                icon: "◈",
+                title: "Signal",
+                body: "Design and UX calibrated for investor trust. Your product will look like it belongs in a Series A pitch — from day one.",
+              },
+            ].map((item, i) => (
+              <FadeUp key={item.title} delay={i * 0.1}>
+                <div className="py-10 pr-10 border-b md:border-b-0 md:border-r border-light-border last:border-0">
+                  <span className="block text-2xl text-light-secondary mb-6 font-light">
+                    {item.icon}
+                  </span>
+                  <h3
+                    className="font-display font-semibold text-light-text mb-4"
+                    style={{ fontSize: "1.25rem", letterSpacing: "-0.01em" }}
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-light-secondary text-sm leading-relaxed">{item.body}</p>
+                </div>
+              </FadeUp>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Value Prop / Process Preview using Editorial Colors */}
-      <ColorBlock color="navy" delay={0.2} className="border-b border-gridline !py-0">
-        <div className="grid grid-cols-1 lg:grid-cols-12 border-x border-gridline max-w-7xl mx-auto divide-y lg:divide-y-0 lg:divide-x divide-gridline">
-          <div className="lg:col-span-5 p-8 lg:p-16 relative overflow-hidden">
-            <MagneticField className="text-neon-green absolute -top-1/4 -left-1/4 w-[150%] scale-150 opacity-10" />
-            
-            <div className="relative z-10">
-                <span className="text-cyber-yellow font-mono font-bold text-xs tracking-widest uppercase mb-4 block">[ Thesis ]</span>
-                <h2 className="font-grotesk font-black text-5xl lg:text-7xl tracking-tighter text-off-white leading-[0.9] mb-8">
-                  SPEED IS <br/> <span className="font-grotesk italic font-light">A FEATURE.</span>
-                </h2>
-                <p className="text-off-white/80 font-grotesk font-light text-lg leading-relaxed mb-10">
-                  Founders lose momentum waiting months for agencies to deliver. We utilize robust layered architectures, AI-assisted coding, and mathematical precision to build production-ready MVPs in weeks.
-                </p>
-                <Link 
-                  href="/process"
-                  className="inline-flex items-center gap-3 px-8 py-4 border border-off-white text-off-white font-mono font-bold text-xs tracking-widest uppercase hover:bg-off-white hover:text-navy transition-colors"
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 5 — FEATURES (isolated product reveals)                   */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="features" className="bg-void">
+        {FEATURES.map((feat, i) => {
+          const isEven = i % 2 === 0;
+          return (
+            <div key={feat.num} className="border-b border-border/40 last:border-b-0">
+              <div className="max-w-7xl mx-auto px-6 lg:px-8 py-24 md:py-36">
+                <div
+                  className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center ${
+                    isEven ? "" : "lg:[&>*:first-child]:order-2"
+                  }`}
                 >
-                  View Blueprint <ArrowRight size={16} />
-                </Link>
+                  {/* Text */}
+                  <FadeUp delay={0.05}>
+                    <span className="block font-mono text-xs text-text-dim mb-6">
+                      {feat.num}
+                    </span>
+                    <h3
+                      className="font-display font-semibold text-text-primary mb-6 text-balance"
+                      style={{
+                        fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)",
+                        letterSpacing: "-0.02em",
+                        lineHeight: 1.15,
+                      }}
+                    >
+                      {feat.title}
+                    </h3>
+                    <p className="text-text-secondary text-base leading-relaxed max-w-md">
+                      {feat.body}
+                    </p>
+                  </FadeUp>
+
+                  {/* Image */}
+                  <FadeUp delay={0.15}>
+                    <div className="relative aspect-video rounded-2xl overflow-hidden bg-surface border border-border/40">
+                      <Image
+                        src={feat.image}
+                        alt={feat.imageAlt}
+                        fill
+                        className="object-cover"
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                      />
+                    </div>
+                  </FadeUp>
+                </div>
+              </div>
             </div>
+          );
+        })}
+      </section>
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 6 — PRODUCT SHOWCASE                                       */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="showcase" className="bg-surface py-0">
+        <div className="relative w-full overflow-hidden">
+          <FadeUp>
+            <div className="relative aspect-[16/7] w-full overflow-hidden">
+              <Image
+                src="/dashboard-mockup.png"
+                alt="Fables Lab product showcase — full-width dashboard view"
+                fill
+                className="object-cover object-center"
+                sizes="100vw"
+                priority
+              />
+              {/* Overlay: bottom fade for text readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-surface/80 via-surface/10 to-transparent" />
+              <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-center">
+                <p className="text-text-muted text-sm font-medium tracking-wide">
+                  Production-grade interfaces. Delivered in weeks.
+                </p>
+              </div>
+            </div>
+          </FadeUp>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 7 — PROCESS                                                */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="process" className="bg-void py-24 md:py-36">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <FadeUp className="mb-16 lg:mb-24">
+            <span className="block text-xs font-medium text-text-dim uppercase tracking-[0.18em] mb-6">
+              The Process
+            </span>
+            <h2
+              className="font-display font-semibold text-text-primary"
+              style={{
+                fontSize: "clamp(2.2rem, 5vw, 4rem)",
+                letterSpacing: "-0.025em",
+                lineHeight: 1.1,
+              }}
+            >
+              From idea to fundable,
+              <br />
+              <span className="text-text-secondary font-light">in three moves.</span>
+            </h2>
+          </FadeUp>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-border/50">
+            {PROCESS.map((p, i) => (
+              <FadeUp key={p.step} delay={i * 0.1}>
+                <div className="py-10 pr-10 border-b md:border-b-0 md:border-r border-border/40 last:border-0">
+                  <span className="block font-mono text-xs text-text-dim mb-6">{p.step}</span>
+                  <h3
+                    className="font-display font-semibold text-text-primary mb-4"
+                    style={{ fontSize: "1.15rem", letterSpacing: "-0.01em" }}
+                  >
+                    {p.label}
+                  </h3>
+                  <p className="text-text-muted text-sm leading-relaxed">{p.body}</p>
+                </div>
+              </FadeUp>
+            ))}
           </div>
-          
-          <div className="lg:col-span-7 divide-y divide-gridline">
-            {[
-              { icon: Zap, title: "Velocity Mechanics", desc: "First iteration ready in 7 days. Full MVP in under 30. No compromises on quality." },
-              { icon: Code2, title: "Atomic Architecture", desc: "Next.js, Tailwind, Supabase. Clean, scalable, structured codebases." },
-              { icon: Rocket, title: "Capital Aesthetic", desc: "Editorial design language mapped directly to high conversion metrics." },
-            ].map((item, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="p-8 lg:p-12 flex gap-8 items-start hover:bg-white/5 transition-colors group"
-              >
-                <div className="p-4 border border-gridline bg-charcoal group-hover:bg-electric-blue transition-colors duration-500 rounded-none relative">
-                  <div className="absolute top-0 left-0 w-1 h-1 bg-off-white" />
-                  <div className="absolute top-0 right-0 w-1 h-1 bg-off-white" />
-                  <div className="absolute bottom-0 left-0 w-1 h-1 bg-off-white" />
-                  <div className="absolute bottom-0 right-0 w-1 h-1 bg-off-white" />
-                  <item.icon size={28} className="text-off-white" />
+
+          <FadeUp className="mt-12">
+            <Link
+              href="/process"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-text-muted hover:text-text-primary transition-colors"
+            >
+              See our full process
+              <ArrowUpRight
+                size={14}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
+            </Link>
+          </FadeUp>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 8 — CREDIBILITY / METRICS                                  */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="credibility" className="bg-surface py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-x border-t border-border/40">
+            {METRICS.map((m, i) => (
+              <FadeUp key={m.label} delay={i * 0.08}>
+                <div className="p-8 lg:p-12 border-r border-b border-border/40 last:border-r-0 [&:nth-child(2)]:border-r-0 md:[&:nth-child(2)]:border-r">
+                  <div className="flex items-baseline gap-1 mb-2">
+                    <span
+                      className="font-display font-semibold text-text-primary"
+                      style={{ fontSize: "clamp(2rem, 4vw, 3.5rem)", letterSpacing: "-0.03em" }}
+                    >
+                      {m.value}
+                    </span>
+                    {m.unit && (
+                      <span className="text-text-muted text-sm font-medium">{m.unit}</span>
+                    )}
+                  </div>
+                  <p className="text-text-dim text-xs font-medium uppercase tracking-[0.1em]">
+                    {m.label}
+                  </p>
                 </div>
-                <div>
-                  <h4 className="font-grotesk font-bold text-2xl mb-3 tracking-wide">{item.title}</h4>
-                  <p className="text-off-white/60 font-grotesk font-light leading-relaxed text-base">{item.desc}</p>
-                </div>
-              </motion.div>
+              </FadeUp>
             ))}
           </div>
         </div>
-      </ColorBlock>
+      </section>
+
+      <Divider />
+
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* SECTION 9 — FINAL CTA                                              */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <section id="cta" className="relative bg-void py-36 md:py-48 overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute inset-0 bg-gradient-void pointer-events-none opacity-70" />
+        <div className="absolute inset-0 noise-overlay pointer-events-none opacity-30" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center">
+          <FadeUp>
+            <h2
+              className="font-display font-semibold text-text-primary text-balance mb-8"
+              style={{
+                fontSize: "clamp(2.5rem, 6vw, 5.5rem)",
+                letterSpacing: "-0.03em",
+                lineHeight: 1.06,
+              }}
+            >
+              Ready to build something
+              <br />
+              <span className="text-text-secondary font-light">fundable?</span>
+            </h2>
+          </FadeUp>
+
+          <FadeUp delay={0.15}>
+            <p className="text-text-muted text-base leading-relaxed max-w-md mx-auto mb-12">
+              Tell us about your idea. We&apos;ll tell you exactly how we&apos;d build it — and what it would take.
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.25}>
+            <Link
+              id="final-cta"
+              href="/contact"
+              className="group inline-flex items-center gap-2.5 px-9 py-4.5 bg-fable-blue text-white font-medium text-sm rounded-pill transition-all duration-300 hover:bg-fable-blue-muted active:scale-[0.98]"
+            >
+              Let&apos;s talk
+              <ArrowRight
+                size={16}
+                className="group-hover:translate-x-1 transition-transform duration-200"
+              />
+            </Link>
+          </FadeUp>
+        </div>
+      </section>
+
     </div>
   );
 }

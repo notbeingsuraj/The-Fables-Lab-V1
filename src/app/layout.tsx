@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter, Space_Mono} from "next/font/google";
+import { Space_Grotesk, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -13,6 +13,7 @@ const spaceGrotesk = Space_Grotesk({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const spaceMono = Space_Mono({
@@ -22,8 +23,15 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Fables Lab | Where Ancient Stories Meet Future Tech",
-  description: "Product studio building investor-ready MVPs in under 30 days.",
+  title: "Fables Lab — Investor-Ready MVPs in 30 Days",
+  description:
+    "Fables Lab builds investor-ready MVPs in under 30 days, engineered for clarity, traction, and fundability — not just functionality.",
+  keywords: ["MVP", "startup", "product studio", "investor-ready", "rapid development"],
+  openGraph: {
+    title: "Fables Lab — Investor-Ready MVPs in 30 Days",
+    description: "Built for clarity, traction, and fundability.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -32,13 +40,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-charcoal text-off-white selection:bg-hot-pink selection:text-white bg-physics-grid bg-grid-lg`}
+        className={`${inter.variable} ${spaceGrotesk.variable} ${spaceMono.variable} antialiased bg-void text-text-primary`}
       >
-        <div className="fixed inset-0 bg-physics-grid bg-grid-sm opacity-50 pointer-events-none -z-50" />
         <Navbar />
-        <main className="min-h-screen pt-20 flex flex-col items-center border-x border-gridline max-w-[1920px] mx-auto bg-charcoal/90">
+        <main className="min-h-screen flex flex-col">
           {children}
         </main>
         <Footer />

@@ -3,69 +3,85 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
+const FOOTER_LINKS = {
+  Work: [
+    { label: "Case Studies", href: "/projects" },
+    { label: "Services", href: "/services" },
+    { label: "Our Process", href: "/process" },
+  ],
+  Studio: [
+    { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
+  ],
+  Connect: [
+    { label: "X (Twitter)", href: "#" },
+    { label: "LinkedIn", href: "#" },
+    { label: "GitHub", href: "#" },
+  ],
+};
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-navy border-t-[0.5px] border-white/10 pt-24 pb-12 relative overflow-hidden">
-      {/* Background Accents */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-electric-blue/5 rounded-full blur-[150px] -z-10" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-hot-pink/5 rounded-full blur-[150px] -z-10" />
+    <footer className="w-full bg-surface border-t border-border/60">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 pt-20 pb-12">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
-          
-          {/* Brand Col */}
+        {/* Top: Brand + Links */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16 pb-16 border-b border-border/40">
+
+          {/* Brand */}
           <div className="md:col-span-5">
-            <h2 className="font-grotesk font-black text-4xl mb-6 tracking-tighter text-white uppercase">
-              The Fables <span className="text-electric-blue">Lab.</span>
-            </h2>
-            <p className="text-white/60 max-w-sm text-sm font-light leading-relaxed mb-8">
-              Where Ancient Stories Meet Future Tech. We build investor-ready MVPs in under 30 days. No fluff, just rapid execution and premium engineering.
+            <Link href="/" className="inline-block mb-6 group">
+              <span className="font-display font-semibold text-2xl text-text-primary group-hover:text-fable-blue transition-colors">
+                Fables Lab
+              </span>
+            </Link>
+            <p className="text-text-muted text-sm leading-relaxed max-w-xs mb-8">
+              Building investor-ready MVPs in under 30 days. Engineered for clarity, traction, and fundability.
             </p>
-            <Link 
+            <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/20 text-white font-bold text-xs uppercase tracking-widest hover:border-electric-blue hover:text-electric-blue transition-colors group"
+              className="group inline-flex items-center gap-1.5 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors"
             >
-              Book Discovery Call <ArrowUpRight size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              Start a project
+              <ArrowUpRight
+                size={14}
+                className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+              />
             </Link>
           </div>
 
-          {/* Links Cols */}
-          <div className="md:col-span-2 md:col-start-7">
-            <h3 className="font-bold text-white uppercase tracking-widest text-xs mb-6">Work</h3>
-            <ul className="space-y-4 text-sm text-white/50">
-              <li><Link href="/projects" className="hover:text-white transition-colors">Case Studies</Link></li>
-              <li><Link href="/services" className="hover:text-white transition-colors">Services</Link></li>
-              <li><Link href="/process" className="hover:text-white transition-colors">Our Process</Link></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <h3 className="font-bold text-white uppercase tracking-widest text-xs mb-6">Studio</h3>
-            <ul className="space-y-4 text-sm text-white/50">
-              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/careers" className="hover:text-white transition-colors flex items-center gap-1 group">Careers <ArrowUpRight size={14} className="group-hover:text-hot-pink transition-colors" /></Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-            </ul>
-          </div>
-
-          <div className="md:col-span-2">
-            <h3 className="font-bold text-white uppercase tracking-widest text-xs mb-6">Social</h3>
-            <ul className="space-y-4 text-sm text-white/50">
-              <li><a href="#" className="hover:text-white transition-colors">Twitter (X)</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
-            </ul>
+          {/* Links */}
+          <div className="md:col-span-7 grid grid-cols-3 gap-8">
+            {Object.entries(FOOTER_LINKS).map(([category, links]) => (
+              <div key={category}>
+                <p className="text-xs font-medium text-text-dim uppercase tracking-[0.1em] mb-5">
+                  {category}
+                </p>
+                <ul className="space-y-3">
+                  {links.map((link) => (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-text-muted hover:text-text-primary transition-colors duration-200"
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t-[0.5px] border-white/10">
-          <p className="text-white/40 text-xs font-light">
-            © {new Date().getFullYear()} The Fables Lab. Base: Chandigarh.
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <p className="text-xs text-text-dim">
+            © {new Date().getFullYear()} Fables Lab. Chandigarh, India.
           </p>
-          <div className="flex gap-4 mt-4 md:mt-0 text-white/40 text-xs">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+          <div className="flex gap-6">
+            <Link href="/privacy" className="text-xs text-text-dim hover:text-text-muted transition-colors">Privacy</Link>
+            <Link href="/terms" className="text-xs text-text-dim hover:text-text-muted transition-colors">Terms</Link>
           </div>
         </div>
       </div>
