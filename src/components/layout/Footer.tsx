@@ -14,9 +14,9 @@ const FOOTER_LINKS = {
     { label: "Contact", href: "/contact" },
   ],
   Connect: [
-    { label: "X (Twitter)", href: "#" },
-    { label: "LinkedIn", href: "#" },
-    { label: "GitHub", href: "#" },
+    { label: "X (Twitter)", href: "#https://x.com/thefableslab" },
+    { label: "LinkedIn", href: "#https://www.linkedin.com/company/thefableslabs/" },
+    { label: "GitHub", href: "#github.com/notbeingsuraj" },
   ],
 };
 
