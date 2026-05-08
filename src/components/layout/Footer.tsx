@@ -15,7 +15,7 @@ const FOOTER_LINKS = {
   ],
   Connect: [
     { label: "X (Twitter)", href: "https://x.com/thefableslab" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/company/thefableslabs/" },
+    { label: "LinkedIn", href: "https://www.linkedin.com/company/109757348" },
     { label: "GitHub", href: "https://github.com/notbeingsuraj" },
   ],
 };
